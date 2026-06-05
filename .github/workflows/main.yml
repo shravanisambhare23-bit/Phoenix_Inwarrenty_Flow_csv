@@ -27,11 +27,13 @@ jobs:
 
       - name: Run postman Collection with newman
         run: |
+          mkdir -p newman
+          
           newman run 'Variables_Inwarrenty_Flow_csv.postman_collection.json' \
           -e QA.postman_environment.json \
           -d testdate.csv \
           -r cli, htmlextra
-          --reporter-html-export newman/report.html
+          --reporter-htmlextra-export newman/report.html
 
       - name: Newman Report
         if: always() #ensure thst the archive executed irrespective whether the previous step has passed or not
