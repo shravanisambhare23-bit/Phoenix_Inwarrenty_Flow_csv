@@ -31,6 +31,7 @@ jobs:
           -e QA.postman_environment.json \
           -d testdate.csv \
           -r cli, htmlextra
+          --reporter-html-export newman/report.html
 
       - name: Newman Report
         if: always() #ensure thst the archive executed irrespective whether the previous step has passed or not
